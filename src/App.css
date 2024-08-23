@@ -1,0 +1,41 @@
+.input-div:focus-within {
+	outline: 2px solid #11175e;
+}
+
+.custom-checkbox {
+	appearance: none; /* Remove default styling */
+	width: 2rem;
+	height: 2rem;
+	border: 2px solid #ccc;
+	border-radius: 50%; /* Ensures circular appearance */
+	position: relative;
+	cursor: pointer;
+}
+
+.custom-checkbox:checked {
+	background-color: #00d8a7;
+	border-color: #00d8a7;
+}
+
+.custom-checkbox:checked::after {
+	content: "✓";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	color: #fff;
+}
+
+.custom-checkbox:hover, .check-text:hover{
+   color: #2D70FD;
+   transition: .3s ease;
+}
+.task-list:hover label{
+   color: #2D70FD;
+   transition: .3s ease;
+}
+li.task-list{
+   margin-bottom: 1.25rem !important;
+   margin-top: 0 !important;
+}
