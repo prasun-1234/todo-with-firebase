@@ -10,6 +10,8 @@ export default function LoginSection() {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
 
+
+
    const handleLogin = async (e) => {
       e.preventDefault();
 
@@ -20,12 +22,27 @@ export default function LoginSection() {
             position: "top-center",
          })
          console.log("user logged in");
-         
+
       } catch (error) {
          console.log(error.message);
-         toast.error(error.message, {
+         const errorMessage = getErrorMessage(error.code);
+         toast.error(errorMessage, {
             position: "bottom-center",
          })
+      }
+   };
+   const getErrorMessage = (errorCode) => {
+      switch (errorCode) {
+         case 'auth/user-not-found':
+            return 'No user found with this email address. Please sign up first.';
+         case 'auth/wrong-password':
+            return 'Incorrect password. Please try again.';
+         case 'auth/invalid-email':
+            return 'Invalid email address. Please enter a valid email.';
+         case 'auth/user-disabled':
+            return 'This user account has been disabled.';
+         default:
+            return 'An error occurred during login. Please try again later.';
       }
    };
 
@@ -45,7 +62,7 @@ export default function LoginSection() {
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 
-               <form onSubmit={handleLogin}  method="POST" className="space-y-6">
+               <form onSubmit={handleLogin} method="POST" className="space-y-6">
                   <div>
                      <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address

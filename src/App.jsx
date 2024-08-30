@@ -29,7 +29,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/todo" element={<MainSection />} />
             <Route path="/login" element={ user ? <Navigate to="/todo" /> : <LoginSection />} />
-            <Route path="/signup" element={<SignupSection />} />
+            <Route path="/signup" element={ user ? <Navigate to="/todo" /> : <SignupSection />} />
             <Route path="*" 
               element={
               <div className="w-full h-dvh container mx-auto">

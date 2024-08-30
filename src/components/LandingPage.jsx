@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom';
+import pageImg from '../assets/cls-book.jpg'
 
 function LandingPage() {
    return (
@@ -13,7 +14,7 @@ function LandingPage() {
 
          <main className="flex-1 flex flex-col items-center justify-center">
             <img
-               src="" // Replace with your image path
+               src={pageImg} // Replace with your image path
                alt="Todo App"
                className="w-80 h-80 object-cover rounded-lg shadow-lg mb-6"
             />
